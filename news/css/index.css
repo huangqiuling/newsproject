@@ -1,0 +1,206 @@
+/* 消除标签自带的内外边距 */
+*{
+  margin:0;
+  padding:0;  
+}
+a{
+    /* 下划线去除 */
+    text-decoration: none;
+    color:#222;
+}
+li{
+    /* 去掉li的小黑点 */
+    list-style: none;
+}
+/* 栅格布局 =》 必考 */
+/* 把网页划分成：网格的样子 那么一定有行和单元格 */
+/* 先写行 */
+.grid{
+    /* 把盒子变成弹性盒子 */
+    display:flex;
+}
+/* 把行分成六等分 =》 单元格的意思 */
+.grid-cell-1{
+    flex-grow: 1;
+}
+.grid-cell-2{
+    flex-grow: 2;
+}
+.grid-cell-3{
+    flex-grow: 3;
+}
+.grid-cell-4{
+    flex-grow: 4;
+}
+.grid-cell-5{
+    flex-grow: 5;
+}
+.grid-cell-6{
+    flex-grow: 6;
+}
+/* 头部样式 */
+#header{
+    width:100%;
+    height:62px;
+    border-bottom:1px solid #ccc;
+    box-shadow: 0 0 5px #ccc;
+}
+.header-logo{
+    /* margin:上 右 下 左 */
+    margin:10px 10px 0 10px;
+}
+.header-nav ul li{
+    /* 浮动是肯定可以的！ */
+    /* float: left; */
+    /* 用下面的也可以：(上下的格式都可以，二选一！) */
+    display: inline-block;
+    /* 垂直居中 */
+    line-height: 62px;
+    /* 左右两边有一个间距 */
+    /* margin:上下间距 左右间距; */
+    margin:0 10px;
+    font-size:14px;
+}
+#nav--active{
+    color:#2291F7;
+}
+.header-nav ul li a:hover{
+    color:#2291F7;
+    /* 过渡效果 必考！！ */
+    transition:all 400ms linear 0ms;
+}
+.right-box{
+    /* 垂直居中对于行标签可用，对于块标签不可用 */
+    line-height: 62px;
+}
+.right-box a{
+    /* 把a标签变成行块标签 */
+    display: inline-block;
+    width:80px;
+    height:30px;
+    border:1px solid #2291F7;
+    border-radius:5px;
+    /* 文字水平居中 */
+    text-align: center;
+    /* 垂直居中 */
+    line-height: 30px;
+    font-size:14px;
+    color:#2291F7;
+}
+.right-box a:hover{
+    background:#f8ebfe;
+    /* 过渡效果 必考！！ */
+    transition:all 400ms linear 0ms;
+}
+/* 内容区样式 */
+#content{
+    width:90%;
+    margin:20px auto;
+}
+.container h1{
+    margin:12px 0;
+    font-size:34px;
+    color:#333;
+}
+.container p{
+    font-size:16px;
+    margin-bottom: 32px;
+}
+/* 右边推荐栏制作 */
+.hot-new{
+    width:270px;
+    margin-left: 40px;
+}
+.hot-new h3{
+    font-size:24px;
+    margin-bottom: 10px;
+}
+.news-box{
+    margin-bottom: 20px;
+    padding:10px;
+    width: 260px;
+    border:1px solid #fff;
+}
+.news-box img{
+    width:100%;
+}
+.news-box:hover{
+    border:1px solid #eee;
+    border-radius: 5px;  
+    transition: all 400ms linear 0ms; 
+}
+.news-box:hover a{
+    color:#2291F7;
+    transition: all 400ms linear 0ms;
+}
+.news-box dt{
+    width:260px;
+    overflow: hidden;
+}
+.news-box:hover img{
+    /* 转换放大 */
+    transform:scale(1.1);
+    transition: all 400ms linear 0ms;
+}
+/* 返回顶部效果 */
+#return-box{
+    width:40px;
+    height:40px;
+    padding:5px;
+    background:#eee;
+    display: block;
+    position: fixed;
+    right:10px;
+    bottom:60px;
+    border:1px solid #ccc;
+    text-align: center;
+}
+/* 底部样式 */
+#footer{
+    height:100px;
+    background:#EEE;
+    text-align: center;
+    font-size: 14px;
+}
+#footer ul li{
+    display: inline-block;
+    margin-top:30px;
+    margin-bottom: 5px;
+}
+#footer ul li a:hover{
+    color:#2291F7;
+    transition: all 400ms linear 0ms;
+}
+/* PC端需要隐藏 */
+.mobile-nav
+{
+    display: none;
+}
+/* 多媒体查询标签 */
+@media all and (max-width:480px)
+{
+   .hot-new,
+   .header-nav
+   {
+       display: none;
+   }
+   #return-box
+   {
+       border-radius: 50%;
+   }
+   .mobile-nav
+   {
+       /* 移动端时展示导航条 */
+       display: block;
+       height: 40px;
+       line-height: 40px;
+       text-align: center;
+       border-bottom: 2px solid #ccc;
+       font-size: 14px;
+   }
+   /* 特殊样式特殊修饰符 */
+   .mobile--li
+   {
+       border-bottom: 2px solid #2291F7;
+   }
+}
